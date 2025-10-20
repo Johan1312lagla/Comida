@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comida Típica</title>
+  <link rel="icon" href="imagenes/favicon.png" type="image/png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+
+    nav {
+      float: left;
+      width: 20%;               /* << menos ancho */
+      background: #ccc;
+      padding: 20px;
+      min-height: 120vh;        /* << baja más hacia abajo */
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-bottom: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+    }
+
+    section {
+      float: left;
+      width: 80%;               /* << más espacio al texto */
+      padding: 20px;
+      background-color: #f1f1f1;
+    }
+
+    p {
+      text-align: justify;      /* << centrado visual */
+      margin-right: 40px;       /* << menos pegado */
+    }
+
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      clear: both;
+    }
+
+    @media (max-width: 600px) {
+      nav, section {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    Bienvenido a mi programa de Comida Típica de Cotopaxi
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#acerca">Acerca</a></li>
+      <li><a href="#producto">Producto</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <article id="inicio">
+      <h2>Inicio</h2>
+      <hr>
+      <p>
+        La gastronomía del Ecuador es muy variada y deliciosa.
+        En la Sierra se destaca el locro de papa, una sopa espesa con queso y aguacate.
+        También es muy popular el hornado, carne de cerdo asada acompañada de mote y llapingachos.
+        En la Costa abundan los mariscos y se disfruta del ceviche, preparado con camarones o pescado.
+        Otro plato muy querido es el encebollado, una sopa de pescado con yuca y cebolla encurtida.
+        En la Amazonía se puede probar el maito de pescado, envuelto en hojas y asado al fuego.
+        También son típicos los chontacuros, gusanos asados muy nutritivos.
+        En las Islas Galápagos predominan los platos con mariscos frescos.
+        Cada región tiene su propio sabor y estilo de cocina.
+        La comida ecuatoriana refleja la diversidad y la riqueza cultural del país.
+      </p>
+    </article>
+
+    <article id="acerca">
+      <h2>Acerca de</h2>
+      <hr>
+      <p>
+        En esta página celebramos la rica y diversa gastronomía del Ecuador, un país donde cada región ofrece
+        sabores únicos y tradiciones culinarias que cuentan historias. Desde el delicioso locro de papa de la Sierra,
+        pasando por el ceviche y el encebollado de la Costa, hasta el maito de pescado y los chontacuros de la Amazonía,
+        cada plato representa la identidad y cultura de su gente. Esta página busca resaltar y difundir esas recetas,
+        costumbres y sabores que forman parte de nuestra historia y que nos llenan de orgullo.
+      </p>
+    </article>
+
+    <article id="producto">
+      <h2>Producto</h2>
+      <hr>
+      <img src="imagenes/descarga.jpg" alt="Encebollado" width="300">
+      <p>
+        El encebollado es uno de los platos más representativos del Ecuador. Se trata de una deliciosa sopa de pescado con yuca,
+        cebolla encurtida y jugo de limón, que se sirve bien caliente y suele acompañarse con chifles o pan. Es muy popular en la
+        región Costa y es conocido por ser un excelente remedio para la resaca. Su sabor intenso y su mezcla de ingredientes frescos
+        lo convierten en un símbolo de la gastronomía ecuatoriana.
+      </p>
+
+      <p>Lista de platos típicos:</p>
+      <ul>
+        <li>Encebollado</li>
+        <li>Locro de papa</li>
+        <li>Hornado</li>
+        <li>Ceviche</li>
+        <li>Maito de pescado</li>
+        <li>Fanesca</li>
+      </ul>
+
+      <table border="1" width="30%">
+        <thead>
+          <tr>
+            <th>Comida</th>
+            <th>Precio</th>
+            <th>Típico de tal ciudad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Encebollado</td>
+            <td>2.50$</td>
+            <td>Guayaquil</td>
+          </tr>
+          <tr>
+            <td>Guatita</td>
+            <td>1.50$</td>
+            <td>Cotopaxi</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article id="contacto">
+      <h2>Contacto</h2>
+      <hr>
+      <p>
+        Johann Lagla<br>
+        Tel: 0989167613
+      </p>
+      <p>
+        <a href="mailto:jslagla@espe.edu.ec">jslagla@espe.edu.ec</a><br>
+        <a href="mailto:estivenlagla25@gmail.com">estivenlagla25@gmail.com</a>
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    © 2024 - Comida Típica de Cotopaxi
+  </footer>
+
+</body>
+</html>
