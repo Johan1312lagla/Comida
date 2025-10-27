@@ -29,7 +29,7 @@
       width: 20%;               /* << menos ancho */
       background: #ccc;
       padding: 20px;
-      min-height: 120vh;        /* << baja más hacia abajo */
+      min-height: 283vh;        /* << cubre todo el espacio hasta el footer */
     }
 
     nav ul {
@@ -51,7 +51,8 @@
       float: left;
       width: 80%;               /* << más espacio al texto */
       padding: 20px;
-      background-color: #f1f1f1;
+      
+       min-height: 31vh;
     }
 
     p {
@@ -85,7 +86,7 @@
 <body>
 
   <header>
-    Bienvenido a mi programa de Comida Típica de Cotopaxi
+    Bienvenido a mi programa de Comida Típica del Ecuador 
   </header>
 
   <nav>
@@ -98,7 +99,7 @@
   </nav>
 
   <section>
-    <article id="inicio">
+    <section id="inicio">
       <h2>Inicio</h2>
       <hr>
       <p>
@@ -113,9 +114,9 @@
         Cada región tiene su propio sabor y estilo de cocina.
         La comida ecuatoriana refleja la diversidad y la riqueza cultural del país.
       </p>
-    </article>
+    </section>
 
-    <article id="acerca">
+    <section id="acerca">
       <h2>Acerca de</h2>
       <hr>
       <p>
@@ -125,9 +126,13 @@
         cada plato representa la identidad y cultura de su gente. Esta página busca resaltar y difundir esas recetas,
         costumbres y sabores que forman parte de nuestra historia y que nos llenan de orgullo.
       </p>
-    </article>
+      <video width="400" controls> 
+        <source src="videos/ecuador.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video
+      </video>
+    </section>
 
-    <article id="producto">
+    <section id="producto">
       <h2>Producto</h2>
       <hr>
       <img src="imagenes/descarga.jpg" alt="Encebollado" width="300">
@@ -137,18 +142,26 @@
         región Costa y es conocido por ser un excelente remedio para la resaca. Su sabor intenso y su mezcla de ingredientes frescos
         lo convierten en un símbolo de la gastronomía ecuatoriana.
       </p>
+      
 
+      <hr>
       <p>Lista de platos típicos:</p>
+        <audio controls>
+          <source src="audios/gastronomia.mp3" type="audio/mpeg">
+        </audio>
       <ul>
+        <li>Tigrillo</li>
         <li>Encebollado</li>
-        <li>Locro de papa</li>
-        <li>Hornado</li>
+        <li>Yapingacho</li>
         <li>Ceviche</li>
-        <li>Maito de pescado</li>
-        <li>Fanesca</li>
+        <li>Cuy Asado</li>
+        <li>Humitas</li>
+        <li>Bolon de Verde</li>
+        <li>Fritada</li>
+        <li>Seco de Pollo</li>
       </ul>
 
-      <table border="1" width="30%">
+      <table border="1" width="50%">
         <thead>
           <tr>
             <th>Comida</th>
@@ -163,15 +176,15 @@
             <td>Guayaquil</td>
           </tr>
           <tr>
-            <td>Guatita</td>
-            <td>1.50$</td>
+            <td>Cuy Asado</td>
+            <td>3.50$</td>
             <td>Cotopaxi</td>
           </tr>
         </tbody>
       </table>
-    </article>
+    </section>
 
-    <article id="contacto">
+    <section id="contacto">
       <h2>Contacto</h2>
       <hr>
       <p>
@@ -182,11 +195,11 @@
         <a href="mailto:jslagla@espe.edu.ec">jslagla@espe.edu.ec</a><br>
         <a href="mailto:estivenlagla25@gmail.com">estivenlagla25@gmail.com</a>
       </p>
-    </article>
+    </section>
   </section>
 
   <footer>
-    © 2024 - Comida Típica de Cotopaxi
+    © 2025 - Comida Típica del Ecuador
   </footer>
 
 </body>
