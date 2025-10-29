@@ -1,267 +1,377 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comida Típica</title>
-  <link rel="icon" href="imagenes/favicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comida Típica</title>
+    <link rel="icon" href="imagenes/favicon.png" type="image/png">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-    }
+        body {
+            /* MODIFICADO: Cambiamos a Verdana, es un poco más suave que Arial */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+        }
 
-    header {
-      background-color: #666;
-      padding: 30px;
-      text-align: center;
-      font-size: 35px;
-      color: white;
-    }
+        header {
+            background-color: #666;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+            /* NUEVO: Sombra de texto sutil para que el título resalte un poco */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
 
-    nav {
-      float: left;
-      width: 20%;               /* << menos ancho */
-      background: #ccc;
-      padding: 20px;
-      min-height: 283vh;        /* << cubre todo el espacio hasta el footer */
-    }
+        nav {
+            float: left;
+            width: 20%;
+            background: #ccc;
+            padding: 20px;
+            min-height: 475vh; /* Se mantiene tu alto original */
+        }
 
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-    }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-    nav ul li {
-      margin-bottom: 10px;
-    }
+        nav ul li {
+            margin-bottom: 10px;
+        }
 
-    nav ul li a {
-      text-decoration: none;
-      font-weight: bold;
-      color: black;
-    }
+        nav ul li a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            /* NUEVO: Transición para el efecto hover */
+            transition: color 0.3s;
+        }
 
-    section {
-      float: left;
-      width: 80%;               /* << más espacio al texto */
-      padding: 20px;
+        /* NUEVO: Efecto simple al pasar el mouse sobre los enlaces del menú */
+        nav ul li a:hover {
+            color: #0056b3; /* Cambia a un color azul al pasar el mouse */
+        }
+
+        section {
+            float: left;
+            width: 80%;
+            padding: 20px;
+            min-height: 31vh;
+        }
+
+        p {
+            text-align: justify;
+            margin-right: 40px;
+            /* NUEVO: Mejoramos la legibilidad de "las palabras" */
+            line-height: 1.6; 
+        }
+
+        /* NUEVO: Reglas para centrar y mejorar "gráficos" y "videos" */
+        img, 
+        video,
+        audio {
+            display: block; /* Necesario para que margin:auto funcione */
+            margin: 15px auto; /* Centra el elemento horizontalmente */
+            border-radius: 8px; /* Bordes redondeados sutiles */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+        }
+        
+        /* Hacemos que la imagen y video no se salgan del contenedor en section */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        video {
+            /* Mantenemos el ancho que tenías, pero evitamos que se desborde */
+            max-width: 400px; 
+             margin: 25px auto;
+            width: 100%; /* Asegura que se adapte si es más pequeño */
+        }
+        
       
-       min-height: 31vh;
-    }
 
-    p {
-      text-align: justify;      /* << centrado visual */
-      margin-right: 40px;       /* << menos pegado */
-    }
+        /* NUEVO: Centramos la tabla y le damos el estilo desde CSS */
+        table {
+            width: 50%; /* Ancho que tenías en el HTML */
+            border-collapse: collapse; /* Une los bordes de la tabla */
+            margin: 25px 0; /* Centra la tabla */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil */
+        }
+        /* NUEVO: Estilos para las celdas (reemplaza border="1") */
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        /* NUEVO: Estilo para la cabecera de la tabla */
+        thead tr {
+            background-color: #f2f2f2;
+        }
 
-    section::after {
-      content: "";
-      display: table;
-      clear: both;
-    }
 
-    footer {
-      background-color: #777;
-      padding: 10px;
-      text-align: center;
-      color: white;
-      clear: both;
-    }
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 
-    @media (max-width: 600px) {
-      nav, section {
-        width: 100%;
-        height: auto;
-      }
-    }
-  </style>
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            clear: both;
+        }
+        
+        /* ESTILOS PARA EL FORMULARIO DE PEDIDOS (Centrado y Recuadro) */
+        
+        .form-container {
+            margin: 20px auto; 
+            max-width: 500px; 
+            border: 1px solid #ddd;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            text-align: left;
+            /* NUEVO: Bordes redondeados para el formulario */
+            border-radius: 8px;
+        }
+        
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="date"],
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px; /* NUEVO: Redondeo en los campos */
+            box-sizing: border-box; 
+        }
+
+        .form-container h3 {
+            text-align: center;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        .form-container button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px; /* MODIFICADO: Ya lo tenías, ¡genial! */
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .form-container button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .form-container button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            nav, section {
+                width: 100%;
+                height: auto;
+            }
+            
+            /* NUEVO: En móvil, la tabla ocupa más espacio */
+            table {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <header>
-    Bienvenido a mi programa de Comida Típica del Ecuador 
-  </header>
+    <header>
+        Bienvenido a mi programa de Comida Típica del Ecuador
+    </header>
 
-  <nav>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#acerca">Acerca</a></li>
-      <li><a href="#producto">Producto</a></li>
-      <li><a href="pedido-section"> Pedidos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#acerca">Acerca</a></li>
+            <li><a href="#producto">Producto</a></li>
+            <li><a href="#pedido-section"> Pedidos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
 
-  <section>
-    <section id="inicio">
-      <h2>Inicio</h2>
-      <hr>
-      <p>
-        La gastronomía del Ecuador es muy variada y deliciosa.
-        En la Sierra se destaca el locro de papa, una sopa espesa con queso y aguacate.
-        También es muy popular el hornado, carne de cerdo asada acompañada de mote y llapingachos.
-        En la Costa abundan los mariscos y se disfruta del ceviche, preparado con camarones o pescado.
-        Otro plato muy querido es el encebollado, una sopa de pescado con yuca y cebolla encurtida.
-        En la Amazonía se puede probar el maito de pescado, envuelto en hojas y asado al fuego.
-        También son típicos los chontacuros, gusanos asados muy nutritivos.
-        En las Islas Galápagos predominan los platos con mariscos frescos.
-        Cada región tiene su propio sabor y estilo de cocina.
-        La comida ecuatoriana refleja la diversidad y la riqueza cultural del país.
-      </p>
-    </section>
+    <section>
+        <section id="inicio">
+            <h2>Inicio</h2>
+            <hr>
+            <p>
+                La gastronomía del Ecuador es muy variada y deliciosa.
+                En la Sierra se destaca el locro de papa, una sopa espesa con queso y aguacate.
+                También es muy popular el hornado, carne de cerdo asada acompañada de mote y llapingachos.
+                En la Costa abundan los mariscos y se disfruta del ceviche, preparado con camarones o pescado.
+                Otro plato muy querido es el encebollado, una sopa de pescado con yuca y cebolla encurtida.
+                En la Amazonía se puede probar el maito de pescado, envuelto en hojas y asado al fuego.
+                También son típicos los chontacuros, gusanos asados muy nutritivos.
+                En las Islas Galápagos predominan los platos con mariscos frescos.
+                Cada región tiene su propio sabor y estilo de cocina.
+                La comida ecuatoriana refleja la diversidad y la riqueza cultural del país.
+            </p>
+        </section>
 
-    <section id="acerca">
-      <h2>Acerca de</h2>
-      <hr>
-      <p>
-        En esta página celebramos la rica y diversa gastronomía del Ecuador, un país donde cada región ofrece
-        sabores únicos y tradiciones culinarias que cuentan historias. Desde el delicioso locro de papa de la Sierra,
-        pasando por el ceviche y el encebollado de la Costa, hasta el maito de pescado y los chontacuros de la Amazonía,
-        cada plato representa la identidad y cultura de su gente. Esta página busca resaltar y difundir esas recetas,
-        costumbres y sabores que forman parte de nuestra historia y que nos llenan de orgullo.
-      </p>
-      <video width="400" controls> 
-        <source src="videos/ecuador.mp4" type="video/mp4">
-        Tu navegador no soporta el elemento de video
-      </video>
-    </section>
+        <section id="acerca">
+            <h2>Acerca de</h2>
+            <hr>
+            <p>
+                En esta página celebramos la rica y diversa gastronomía del Ecuador, un país donde cada región ofrece
+                sabores únicos y tradiciones culinarias que cuentan historias. Desde el delicioso locro de papa de la Sierra,
+                pasando por el ceviche y el encebollado de la Costa, hasta el maito de pescado y los chontacuros de la Amazonía,
+                cada plato representa la identidad y cultura de su gente. Esta página busca resaltar y difundir esas recetas,
+                costumbres y sabores que forman parte de nuestra historia y que nos llenan de orgullo.
+            </p>
+            <video width="400" controls>
+                <source src="videos/ecuador.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video
+            </video>
+        </section>
 
-    <section id="producto">
-      <h2>Producto</h2>
-      <hr>
-      <img src="imagenes/descarga.jpg" alt="Encebollado" width="300">
-      <p>
-        El encebollado es uno de los platos más representativos del Ecuador. Se trata de una deliciosa sopa de pescado con yuca,
-        cebolla encurtida y jugo de limón, que se sirve bien caliente y suele acompañarse con chifles o pan. Es muy popular en la
-        región Costa y es conocido por ser un excelente remedio para la resaca. Su sabor intenso y su mezcla de ingredientes frescos
-        lo convierten en un símbolo de la gastronomía ecuatoriana.
-      </p>
-      
+        <section id="producto">
+            <h2>Producto</h2>
+            <hr>
+            <img src="imagenes/descarga.jpg" alt="Encebollado" width="300">
+            <p>
+                El encebollado es uno de los platos más representativos del Ecuador. Se trata de una deliciosa sopa de pescado con yuca,
+                cebolla encurtida y jugo de limón, que se sirve bien caliente y suele acompañarse con chifles o pan. Es muy popular en la
+                región Costa y es conocido por ser un excelente remedio para la resaca. Su sabor intenso y su mezcla de ingredientes frescos
+                lo convierten en un símbolo de la gastronomía ecuatoriana.
+            </p>
+            
 
-      <hr>
-      <p>Lista de platos típicos:</p>
-        <audio controls>
-          <source src="audios/gastronomia.mp3" type="audio/mpeg">
-        </audio>
-      <ul>
-        <li>Tigrillo</li>
-        <li>Encebollado</li>
-        <li>Yapingacho</li>
-        <li>Ceviche</li>
-        <li>Cuy Asado</li>
-        <li>Humitas</li>
-        <li>Bolon de Verde</li>
-        <li>Fritada</li>
-        <li>Seco de Pollo</li>
-      </ul>
+            <hr>
+            <p>Lista de platos típicos:</p>
+                <audio controls>
+                    <source src="audios/gastronomia.mp3" type="audio/mpeg">
+                </audio>
+            <ul>
+                <li>Tigrillo</li>
+                <li>Encebollado</li>
+                <li>Yapingacho</li>
+                <li>Ceviche</li>
+                <li>Cuy Asado</li>
+                <li>Humitas</li>
+                <li>Bolon de Verde</li>
+                <li>Fritada</li>
+                <li>Seco de Pollo</li>
+            </ul>
 
-      <table border="1" width="50%">
-        <thead>
-          <tr>
-            <th>Comida</th>
-            <th>Precio</th>
-            <th>Típico de tal ciudad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Encebollado</td>
-            <td>2.50$</td>
-            <td>Guayaquil</td>
-          </tr>
-          <tr>
-            <td>Cuy Asado</td>
-            <td>3.50$</td>
-            <td>Cotopaxi</td>
-          </tr>
-        </tbody>
-      </table>
-        
-
-
-
-    </section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Comida</th>
+                        <th>Precio</th>
+                        <th>Típico de tal ciudad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Encebollado</td>
+                        <td>2.50$</td>
+                        <td>Guayaquil</td>
+                    </tr>
+                    <tr>
+                        <td>Cuy Asado</td>
+                        <td>3.50$</td>
+                        <td>Cotopaxi</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </section>
 
         <section id="pedido-section">
-          <h2>Pedidos</h2>
-    <div class="form-container" align="center">
-        <h2>Formulario de Pedido</h2>
-        <p >Complete la información para realizar su pedido de comida típica del Ecuador.</p>
+            <h2>Pedidos</h2>
+            <hr>
 
-        <form action="#" method="post">
+            <div class="form-container">
+                <h2>Formulario de Pedido</h2>
+                <p>Complete la información para realizar su pedido de comida típica del Ecuador.</p>
 
-            <!-- DATOS PERSONALES -->
-            <h3>Datos del Cliente</h3>
+                <form action="#" method="post">
 
-            <label for="nombre">Nombre completo:</label><br>
-            <input id="nombre" type="text" name="nombre" placeholder="Ej: Juan Pérez" required><br><br>
+                    <h3>Datos del Cliente</h3>
 
-            <label for="correo">Correo electrónico:</label><br>
-            <input id="correo" type="email" name="correo" placeholder="Ej: ejemplo@gmail.com" required><br><br>
+                    <label for="nombre">Nombre completo:</label><br>
+                    <input id="nombre" type="text" name="nombre" placeholder="Ej: Juan Pérez" required><br>
 
-            <label for="fecha">Fecha de entrega:</label><br>
-            <input id="fecha" type="date" name="fecha" required><br><br>
+                    <label for="correo">Correo electrónico:</label><br>
+                    <input id="correo" type="email" name="correo" placeholder="Ej: ejemplo@gmail.com" required><br>
 
-            <!-- PEDIDO PRINCIPAL -->
-            <h3>Seleccione su plato</h3>
-            <input id="encebollado" type="radio" name="plato" value="Encebollado" required>
-            <label for="encebollado">Encebollado</label><br>
+                    <label for="fecha">Fecha de entrega:</label><br>
+                    <input id="fecha" type="date" name="fecha" required><br>
 
-            <input id="ceviche" type="radio" name="plato" value="Ceviche">
-            <label for="ceviche">Ceviche</label><br>
+                    
+                    <h3>Seleccione su plato</h3>
+                    <input id="encebollado" type="radio" name="plato" value="Encebollado" required>
+                    <label for="encebollado">Encebollado</label><br>
 
-            <input id="hornado" type="radio" name="plato" value="Hornado">
-            <label for="hornado">Hornado</label><br>
+                    <input id="ceviche" type="radio" name="plato" value="Ceviche">
+                    <label for="ceviche">Ceviche</label><br>
 
-            <input id="fritada" type="radio" name="plato" value="Fritada">
-            <label for="fritada">Fritada</label><br><br>
+                    <input id="hornado" type="radio" name="plato" value="Hornado">
+                    <label for="hornado">Hornado</label><br>
 
-            <!-- ACOMPAÑANTES -->
-            <h3>Acompañantes Extras (opcional)</h3>
-            <input id="tostado" type="checkbox" name="extra" value="Tostado">
-            <label for="tostado">Tostado</label><br>
+                    <input id="fritada" type="radio" name="plato" value="Fritada">
+                    <label for="fritada">Fritada</label><br><br>
 
-            <input id="maduro" type="checkbox" name="extra" value="Maduro">
-            <label for="maduro">Maduro</label><br>
+                    
+                    <h3>Acompañantes Extras (opcional)</h3>
+                    <input id="tostado" type="checkbox" name="extra" value="Tostado">
+                    <label for="tostado">Tostado</label><br>
 
-            <input id="aguacate" type="checkbox" name="extra" value="Aguacate">
-            <label for="aguacate">Aguacate</label><br><br>
+                    <input id="maduro" type="checkbox" name="extra" value="Maduro">
+                    <label for="maduro">Maduro</label><br>
 
-            <!-- OBSERVACIONES -->
-            <h3>Observaciones del Pedido</h3>
-            <textarea name="comentarios" rows="4" placeholder="Ej: Sin cebolla, con extra limón..."></textarea><br><br>
+                    <input id="aguacate" type="checkbox" name="extra" value="Aguacate">
+                    <label for="aguacate">Aguacate</label><br><br>
 
-            <!-- BOTONES -->
-            <button type="submit">Enviar Pedido</button>
-            <button type="reset">Borrar</button>
+                    <h3>Observaciones del Pedido</h3>
+                    <textarea name="comentarios" rows="4" placeholder="Ej: Sin cebolla, con extra limón..."></textarea><br>
 
-        </form>
-    </div>
+                    <button type="submit">Enviar Pedido</button>
+                    <button type="reset">Borrar</button>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <hr>
-      <p>
-        Johann Lagla<br>
-        Tel: 0989167613
-      </p>
-      <p>
-        <a href="mailto:jslagla@espe.edu.ec">jslagla@espe.edu.ec</a><br>
-        <a href="mailto:estivenlagla25@gmail.com">estivenlagla25@gmail.com</a>
-      </p>
+                </form>
+            </div>
+            <hr>
+            <section id="contacto">
+                <h2>Contacto</h2>
+                <hr>
+                <br>
+                <p>
+                    Johann Lagla<br>
+                    Tel: 0989167613
+                </p>
+                <p>
+                    <a href="mailto:jslagla@espe.edu.ec">jslagla@espe.edu.ec</a><br>
+                    <a href="mailto:estivenlagla25@gmail.com">estivenlagla25@gmail.com</a>
+                </p>
+            </section>
+        </section>
+
     </section>
-  </section>
 
-  <footer>
-    © 2025 - Comida Típica del Ecuador
-  </footer>
+    <footer>
+        © 2025 - Comida Típica del Ecuador
+    </footer>
 
-</body>
+</body> 
 </html>
