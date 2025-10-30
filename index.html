@@ -15,6 +15,12 @@
             /* MODIFICADO: Cambiamos a Verdana, es un poco más suave que Arial */
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin: 0;
+                /* Usamos grid: fila 1 = header (auto), fila 2 = contenido, fila 3 = footer (auto).
+                    Columnas: 20% sidebar + contenido. */
+                display: grid;
+                grid-template-columns: 20% 1fr;
+                grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
         }
 
         header {
@@ -27,12 +33,21 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
+        /* Colocar el header en la primera fila y que ocupe ambas columnas */
+        header {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+        }
+
         nav {
-            float: left;
-            width: 20%;
+            /* Sidebar en la columna 1 del grid (fila de contenido) */
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
             background: #ccc;
             padding: 20px;
-            min-height: 475vh; /* Se mantiene tu alto original */
+            /* El nav ocupará toda la altura de la primera fila del grid,
+               que llega hasta el inicio del footer. */
+            min-height: 100%;
         }
 
         nav ul {
@@ -58,10 +73,11 @@
         }
 
         section {
-            float: left;
-            width: 80%;
+            /* Main content en la columna 2 del grid (fila de contenido) */
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
             padding: 20px;
-            min-height: 31vh;
+            min-height: auto;
         }
 
         p {
@@ -114,10 +130,10 @@
         }
 
 
+        /* No necesitamos clearfix porque usamos grid */
         section::after {
             content: "";
             display: table;
-            clear: both;
         }
 
         footer {
@@ -131,7 +147,7 @@
         /* ESTILOS PARA EL FORMULARIO DE PEDIDOS (Centrado y Recuadro) */
         
         .form-container {
-            margin: 20px auto; 
+            margin: 20px auto 10px auto; 
             max-width: 500px; 
             border: 1px solid #ddd;
             padding: 30px;
@@ -181,15 +197,73 @@
         }
 
         @media (max-width: 600px) {
+            /* En móvil usamos flujo normal en bloque para apilar nav y contenido */
+            body {
+                display: block;
+            }
             nav, section {
                 width: 100%;
                 height: auto;
+                float: none;
             }
             
             /* NUEVO: En móvil, la tabla ocupa más espacio */
             table {
                 width: 90%;
             }
+        }
+        /* Ajustes visuales para separar menos el formulario del footer y mejorar el footer */
+        hr {
+            border: none;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            margin: 14px 0; /* más compacta */
+        }
+
+        footer {
+            /* Footer ocupa las dos columnas y siempre se coloca en la tercera fila */
+            grid-column: 1 / 3;
+            grid-row: 3 / 4;
+            /* Fondo más claro y combinable con la paleta gris del sitio */
+            background: linear-gradient(180deg, #a49e9e 0%, #b2b0b0 100%);
+            padding: 24px 20px;
+            text-align: center;
+            color: #22313f; /* texto oscuro para buen contraste sobre fondo claro */
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+
+        #contacto {
+            max-width: 900px;
+            margin: 0 auto 12px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        #contacto h2 {
+            margin: 0 0 6px 0;
+            font-size: 20px;
+        }
+
+        #contacto p {
+            margin: 0;
+            line-height: 1.4;
+            color: #f1f1f1;
+        }
+
+        footer a {
+            color: #1b3550; /* tono oscuro que combine con el fondo claro */
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #0f2436;
+        }
+
+        .copyright {
+            margin-top: 14px;
+            font-size: 14px;
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -352,25 +426,27 @@
                 </form>
             </div>
             <hr>
-            <section id="contacto">
-                <h2>Contacto</h2>
-                <hr>
-                <br>
-                <p>
-                    Johann Lagla<br>
-                    Tel: 0989167613
-                </p>
-                <p>
-                    <a href="mailto:jslagla@espe.edu.ec">jslagla@espe.edu.ec</a><br>
-                    <a href="mailto:estivenlagla25@gmail.com">estivenlagla25@gmail.com</a>
-                </p>
-            </section>
+            <!-- Contacto movido al footer -->
         </section>
 
     </section>
 
     <footer>
-        © 2025 - Comida Típica del Ecuador
+        <div id="contacto">
+            <h2>Contacto</h2>
+            <hr>
+            <p>
+                Johann Lagla<br>
+                Tel: 0989167613
+            </p>
+            <p>
+                <a href="mailto:jslagla@espe.edu.ec">jslagla@espe.edu.ec</a><br>
+                <a href="mailto:estivenlagla25@gmail.com">estivenlagla25@gmail.com</a>
+            </p>
+        </div>
+        <div class="copyright">
+            © 2025 - Comida Típica del Ecuador
+        </div>
     </footer>
 
 </body> 
